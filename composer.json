@@ -1,0 +1,15 @@
+{
+    "name": "wayang/stdlib-base64url",
+    "description": "The Wayang Stdlib Base64Url",
+    "type": "library",
+    "license": "Apache-2.0",
+    "require": {
+    	"php": "^7.1.3",
+        "wayang/exception-spl": "^1.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wayang\\Stdlib\\Base64Url\\": "src/Wayang/Stdlib/Base64Url"
+        }
+    }
+}
