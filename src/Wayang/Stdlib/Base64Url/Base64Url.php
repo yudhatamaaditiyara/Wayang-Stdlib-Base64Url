@@ -16,7 +16,7 @@
  */
 namespace Wayang\Stdlib\Base64Url;
 
-use Wayang\Exception\Spl\InvalidArgumentException;
+use Wayang\Exception\Spl\RuntimeException;
 
 /**
  */
@@ -32,14 +32,14 @@ class Base64Url implements Base64UrlInterface
 
 	/**
 	 * @param string $data
-	 * @throws InvalidArgumentException
+	 * @throws RuntimeException
 	 * @return string
 	 */
 	public function decode(string $data): string{
-		$data.= str_repeat('=', 4 - strlen($data) % 4);
+		$data.= str_repeat('=', 4 - ((strlen($data) % 4) ?: 4));
 		$data = base64_decode(strtr($data, '-_', '+/'), true);
 		if ($data === false) {
-			throw new InvalidArgumentException('Invalid data');
+			throw new RuntimeException('Invalid data');
 		}
 		return $data;
 	}
