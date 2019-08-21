@@ -36,7 +36,9 @@ class Base64Url implements Base64UrlInterface
 	 * @return string
 	 */
 	public function decode(string $data): string{
-		$data.= str_repeat('=', 4 - ((strlen($data) % 4) ?: 4));
+		if ($pad = strlen($data) % 4) {
+			$data .= str_repeat('=', 4 - $pad);
+		}
 		$data = base64_decode(strtr($data, '-_', '+/'), true);
 		if ($data === false) {
 			throw new RuntimeException('Invalid data');
