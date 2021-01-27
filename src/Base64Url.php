@@ -47,8 +47,8 @@ class Base64Url implements Base64UrlInterface
    * @return string
    */
   public function convertBase64UrlToBase64(string $base64Url): string{
-    $base64 = $this->appendPaddingToBase64Url($base64Url);
-    $base64 = strtr($base64, '-_', '+/');
+    $base64 = strtr($base64Url, '-_', '+/');
+    $base64 = $this->appendPaddingToBase64Url($base64);
     return $base64;
   }
 
