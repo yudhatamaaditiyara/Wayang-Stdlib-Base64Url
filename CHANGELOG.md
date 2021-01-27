@@ -1,3 +1,10 @@
+# 1.1.1 - 2021-01-28
+
+- refactor: append padding after replaced base64Url string
+- docs: update `CHANGELOG.md`
+- docs: rename alt text `packagist` and `ci` badge
+- docs: remove `license` badge
+
 # 1.1.0 - 2021-01-26
 
 - feat: add class `Wayang\Stdlib\Base64Url\Factory`
